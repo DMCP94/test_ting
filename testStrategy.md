@@ -36,7 +36,7 @@ This strategy outlines the approach for testing the full-stack component that ha
 - Input validation, avoiding SQL injection, XSS, etc.
 
 ### Accessibility Testing
-- Check WCAG compliance with tools like **axe** or **Lighthouse**.
+- Check WCAG compliance with tools like **axe**.
 
 ---
 
