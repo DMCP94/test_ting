@@ -15,4 +15,4 @@ This document tracks any functional or visual issues discovered during testing.
 - **Expected Result:** User is shown a clear validation error
 - **Actual Result:** Form fails silently; no error message shown
 - **Severity:** Medium
-- **Notes:** Form should prevent submission or clearly indicate required fields
+- **Notes:** Form should prevent submission or clearly indicate required fields.
