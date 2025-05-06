@@ -43,24 +43,6 @@ INSERT INTO interactions (source_id, target_id, type, timestamp, description) VA
   await client.end();
   console.log(' Test database seeded.');
 }
-async function verify() {
-    const client = new Client({
-      connectionString: process.env.DATABASE_URL,
-    });
-  
-    try {
-      await client.connect();
-      const res = await client.query('SELECT * FROM entities');
-      console.log('Entities:', res.rows);
-    } catch (err) {
-      console.error('Error:', err);
-    } finally {
-      await client.end(); // Ensure client is closed after use
-    }
-  }
-  
-  verify();
-
 seed().catch(err => {
   console.error(' Seeding failed:', err);
   process.exit(1);
