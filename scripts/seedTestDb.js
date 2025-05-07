@@ -6,6 +6,9 @@ const client = new Client({
   connectionString: process.env.DATABASE_URL
 });
 
+const { Pool } = require('pg');
+const pool = new Pool();
+
 async function seed() {
   await client.connect();
 
