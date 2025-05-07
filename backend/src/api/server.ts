@@ -17,4 +17,8 @@ const startServer = async () => {
   app.listen(port, () => console.log(`Server running on port ${port}`));
 };
 
-startServer();
+// wrapped this in a function to allow for testing
+if (require.main === module) {
+  startServer();
+}
+export default app;

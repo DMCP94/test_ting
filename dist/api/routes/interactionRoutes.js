@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const interactionsController_1 = require("../controllers/interactionsController");
+const router = (0, express_1.Router)();
+router.get('/entities', interactionsController_1.getEntities);
+router.post('/interaction', interactionsController_1.createInteraction);
+router.get('/interactions', interactionsController_1.getInteractions);
+router.delete('/interaction/:id', interactionsController_1.deleteInteraction);
+router.get('/health', interactionsController_1.health);
+exports.default = router;
