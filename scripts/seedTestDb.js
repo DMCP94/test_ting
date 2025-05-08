@@ -1,4 +1,5 @@
-require('dotenv').config({ path: '.env.test' });
+require('dotenv').config({ path: '../.env.test' });
+console.log('Loaded DB URL:', process.env.DATABASE_URL)
 
 const { Client } = require('pg');
 
@@ -9,7 +10,7 @@ const client = new Client({
 const { Pool } = require('pg');
 const pool = new Pool();
 
-async function seed() {
+async function seedDB() {
   await client.connect();
 
   // Drop & recreate tables
@@ -46,7 +47,8 @@ INSERT INTO interactions (source_id, target_id, type, timestamp, description) VA
   await client.end();
   console.log(' Test database seeded.');
 }
-seed().catch(err => {
+seedDB().catch(err => {
   console.error(' Seeding failed:', err);
   process.exit(1);
 });
+module.exports = seedDB;
