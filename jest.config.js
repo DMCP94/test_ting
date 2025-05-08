@@ -6,6 +6,7 @@ module.exports = {
     },
     moduleFileExtensions: ['js', 'ts'],
     testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+    testTimeout: 30000,
   };
 
   

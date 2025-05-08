@@ -1,5 +1,4 @@
 require('dotenv').config({ path: '../.env.test' });
-console.log('Loaded DB URL:', process.env.DATABASE_URL)
 
 const { Client } = require('pg');
 
@@ -41,14 +40,20 @@ async function seedDB() {
 
 INSERT INTO interactions (source_id, target_id, type, timestamp, description) VALUES
   ('1', '2', 'Meeting', '2025-05-05 14:00:00', 'Lunch meeting'),
-  ('2', '1', 'Call', '2025-05-05 15:00:00', 'Follow-up call');
+  ('2', '1', 'Call', '2025-05-05 15:00:00', 'Follow-up call'),
+  ('1', '2', 'Email', '2025-05-06 09:00:00', 'Sent project documents'),
+  ('2', '1', 'Meeting', '2025-05-06 11:00:00', 'Discussion about budget'),
+  ('1', '2', 'Call', '2025-05-07 10:30:00', 'Clarified project scope'),
+  ('2', '1', 'Email', '2025-05-07 13:00:00', 'Sent final proposal');
   `);
 
   await client.end();
-  console.log(' Test database seeded.');
+  console.log('DB seeded successfully!');
 }
-seedDB().catch(err => {
-  console.error(' Seeding failed:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  seedDB().catch(err => {
+    console.error(' Seeding failed:', err);
+    process.exit(1);
+  });
+}
 module.exports = seedDB;
