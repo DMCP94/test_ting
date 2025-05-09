@@ -48,7 +48,6 @@ INSERT INTO interactions (source_id, target_id, type, timestamp, description) VA
   `);
 
   await client.end();
-  console.log('DB seeded successfully!');
 }
 if (require.main === module) {
   seedDB().catch(err => {

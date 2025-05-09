@@ -10,11 +10,14 @@ beforeAll(async () => {
   await seedDB();
 });
 
-// 
 let poolClosed = false;
 afterAll(async () => {
-  // await pool.end();
-  console.log('DB connection closed');
+  if (!poolClosed) {
+    await pool.end();
+    poolClosed = true; 
+  } else {
+    return;
+  }
 });
 
 describe('GET /api/interactions', () => {
@@ -36,9 +39,9 @@ describe('GET /api/interactions', () => {
 
   // Failure test cases
   it('should return a 500 on db failure', async () => {
-    // Ideally I would mock a failed db connection here, but for now I will just close it.
+    // Ideally I would mock a failed db connection here, but that would require refactoring code in sever.ts.
       await pool.end();
-      poolClosed = true; // Set the flag to indicate that the pool is closed
+      poolClosed = true; 
         
       const response = await request(app).get('/api/interactions');
       expect(response.status).toBe(500);
