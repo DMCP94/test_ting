@@ -16,12 +16,23 @@ This document tracks any functional or visual issues discovered during testing.
 
 ## ❗ Issue #2
  **Title:** POST /interactions is accepting interactions with no source/target ID's
-- **Area:** postgresClient.ts
+- **Area:** controllers
 - **Steps to Reproduce:**
   1. POST /api/interactions
   2. SourceID = Null
   3. Get Results
 - **Expected Result:** API should error / not create new interaction
 - **Actual Result:** API creates new interaction
+- **Severity:** n/a
+- **Notes:** More investigation need, likely other issues here as well.
+
+## ❗ Issue #3
+ **Title:** Delete /interaction/:id returns a 200 even when interaction does not exist
+- **Area:** controllers
+- **Steps to Reproduce:**
+  1. Try to hit DELETE /api/interactions/:id with id that doesnt exist like 99999999
+  2. See that you get a 200 back. 
+- **Expected Result:** Trying to delete a non existing interaction should return a 404
+- **Actual Result:** Trying to delete a non existing interaction returns a 200
 - **Severity:** n/a
 - **Notes:** More investigation need, likely other issues here as well.
