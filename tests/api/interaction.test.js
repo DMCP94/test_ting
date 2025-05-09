@@ -37,7 +37,6 @@ describe('POST /api/interaction', () => {
       .set('Accept', 'application/json');
 
       expect(response.status).toBe(201);
-      console.log(response.body);
   });
 
   // Failure test cases

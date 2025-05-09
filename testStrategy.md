@@ -56,6 +56,13 @@ This strategy outlines the approach for testing the full-stack component that ha
 
 ---
 
+## Improvments
+
+-  Wrap low level components in functions that will only allow them to be called during tests.
+-  Current infratructure is not freindly to mocking individual routes since everthing is handled in the same file (server.ts)
+
+---
+
 ## Conclusion
 
 This strategy ensures that the most critical areas of the application are well-tested, providing stability, scalability, and confidence in future releases. Manual testing will focus on areas with a high impact on user experience and complex edge cases.
